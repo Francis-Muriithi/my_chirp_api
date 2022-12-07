@@ -3,9 +3,10 @@ class AdventuresController < ApplicationController
 
   # GET /adventures
   def index
-    @adventures = Adventure.all
+   render json: Adventure.all, only: [:title, :location],
+   include:
+   [:birds => {:only => [:name, :image, :description]}]
 
-    render json: @adventures
   end
 
   # GET /adventures/1

@@ -5,7 +5,7 @@ class AdventuresController < ApplicationController
   def index
    render json: Adventure.all, only: [:title, :location],
    include:
-   [:birds => {:only => [:name, :image, :description]}]
+   [:birds]
 
   end
 
